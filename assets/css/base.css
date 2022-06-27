@@ -1,0 +1,174 @@
+:root{
+    --primary-color: #c647dc;
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;   
+    --border-color: #dbdbdb;
+
+    --header-height:120px;
+    --navbar-height:36px;
+    --search-height: calc(var(--header-height) - var(--navbar-height));
+}
+*{
+    box-sizing: inherit;
+}
+html{
+    font-size: 62.5%; /*1 hacke, tuong duong voi 12px, muon 16px thi 1.6 rem, 12px thi 1rem*/
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Responsive */
+.grid{  /*sau này làm respon đỡ khổ*/
+    width: 1200px;  /*đối với màn hình lớn hơn 1200px thì wdth là 1k2*/
+    max-width: 100%;     /*còn nhỏ hơn 1k2 thì để 100%*/
+    margin: 0 auto;    
+}
+.grid__full-width{
+    width: 100%; /*trong TH khong muốn để 1k2*/
+}
+.grid__row{     /*xai cho cac thu muon no hien chieu ngang*/
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+.mr{
+    margin-right: 8px;
+}
+
+/* test */
+.grid__col-2{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.6667%;
+}
+.grid__col-2-4{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+}
+.grid__col-10{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.3334%;
+
+}
+
+/*animation*/
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes grow{
+    from{
+        transform: scale(var(--grow-from));
+    }
+    to{
+        transform: scale(var(--grow-to));
+    }
+}
+
+/*login modal*/
+.modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;        /*khi bật lên thì modal chiếm hết cả màn hình, không có di chuyển*/
+    display: none;                      /*89 bao h muon hien ra thi xai flex*/
+    animation: fadeIn linear 0.2s;
+}
+.modal__overlay{
+    position: absolute;     /*lấy modal làm gốc tọa độ*/
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);      /*màu background khi bật modal*/
+}
+.modal__body{
+    --grow-from:0.7;        /*tu 70% den 100%*/
+    --grow-to:1;
+    margin: auto;
+    position: relative;      /*cho body nổi lên trên, không thì sẽ bị overlay đè lên, default kh set thi zindex overlay đang là 0*/
+    z-index: 1;     /*cho body nổi lên trên, không thì sẽ bị overlay đè lên do đang để overlay trc body trong css, default kh set thi zindex overlay đang là 0*/
+    animation: grow linear 0.2s;
+}
+
+
+/*BUTTON STYLE, VIEETS VO DAY VI BUTTON SE XAI CHUNG*/
+.btn{
+    min-width: 124px;
+    height: 34px;
+    text-decoration: none;  /*de phong sau nay xai the a lam button thi se co gach duoi*/
+    border: none;
+    border-radius: 2px;
+    font-size: 1.4rem;
+    padding: 0;         /*85 default here we will have padding bot 2px to the btn, so delete that */
+    outline: none;
+    cursor: pointer;
+    background-color: var(--white-color);
+    color: var(--text-color);
+    display: inline-flex;                  /*canh giua cac thanh phan trong nut*/
+    justify-content: center;
+    align-items: center;
+}
+.btn.btn-normal:hover{
+    background-color: rgba(0,0,0,0.2);
+}
+
+.btn.btn--primary{          /*select elemet co ca 2 class btn va btn--primary*/
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+.btn.btn--size-s{
+    height: 32px;
+    font-size: 1.2rem;
+    padding: 0 8px;
+    border-radius: 10px;
+}
+
+.btn.btn--disabled{         /*vi du khi chua dien xong form thi kh dc bam nut dki, thi nhet class nay vo may nut kh dc bam*/
+    cursor: default;
+    filter: brightness(80%);        /*giam do sang*/
+}
+
+
+/* pagination */
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 12px 0 36px 0;
+}
+.pagination-item{
+    margin: 0 12px;
+}
+
+.pagination-item__link{
+    display: block;
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: #939393;
+    min-width: 40px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;  /*dung` de can giua chu theo chieu doc*/
+}
+.pagination-item--active{
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+.pagination-item--active .pagination-item__link{
+    color: var(--white-color);
+}
+.pagination-item--active .pagination-item__link:hover{
+    background-color: #ca77d8;
+}
