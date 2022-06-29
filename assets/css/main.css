@@ -1,3 +1,7 @@
+.wrapper{
+    overflow: hidden;
+}
+
 .header{
     height: var(--header-height);
     background-image: linear-gradient(0,#c647dc,#530c5f);
@@ -6,6 +10,55 @@
     display: flex;
     justify-content: space-between;
 }
+
+/* Filter in mobile, tablet screen */
+.header__sort-bar{
+    list-style: none;
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    height: var(--header-sort-bar-height);
+    background-color: var(--white-color);
+    margin: 0;
+    padding-left: 0;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #b7b6b6;
+    display: none;
+}
+
+.header__sort-item{
+    flex:1;
+}
+
+.header__sort-link{
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.3rem;
+    display: block;
+    height: 100%;
+    line-height: var(--header-sort-bar-height);
+    text-align: center;
+    position: relative;
+}
+
+.header__sort-link::before{         /*gạch phân cách*/
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    height: 60%;
+    border-left: 1px solid #b6b6b6;
+}
+.header__sort-item:first-child .header__sort-link::before{
+    display: none;
+}
+
+.header__sort-link--active{
+    color: var(--primary-color);
+}
+
 .navbar{
     list-style: none;   /*delete the dots at the beginning of li tag (default)*/
     padding-left: 0; /*by default ul will has padding left 40px, set 0 to delete that*/
@@ -198,6 +251,8 @@
 .header__logo-link{             /*khi logo đc dùng trong thẻ a, với 1 số browser cũ thì vẫn có thể có gạch dưới logo, hoặc có 1 khung border quanh*/
     text-decoration: none;
     color: transparent;     /*xóa khung border xanh*/
+    display: block;
+    line-height: 0;
 }
 .navbar__noti{
     position: absolute;
@@ -440,13 +495,21 @@
     margin: 0 8px;          /*thang chu download voi logo*/
 }
 
+.header__mobile-search{
+    display: none;
+}
+.header__mobile-search i {
+    font-size: 2.6rem;
+    color: var(--white-color);
+}
+
 .search__logo{                  /*cho cuc logo thanh bang chieu cao voi search, de khi align item thi se align so voi logo */
     width: 210px;
     height: var(--search-height);
 }
-.search__logo-img{     
+.search__logo-img{
     width: 150px;
-    height: 100%;           /*khong co thi placehoder trong input se bi lech*/
+    height: 100%;           /* khong co thi placehoder trong input se bi lech */
 }
 .search__block{
     height: 40px;
@@ -952,6 +1015,56 @@
     color: #555;
 }
 
+/* mobile category */
+.mobile-category{
+    display: none;
+}
+
+.mobile-category__list{
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    max-width: 100%;
+    overflow-x: auto;
+}
+.mobile-category__list::-webkit-scrollbar{
+    display: none;
+}
+
+.mobile-category__item{
+    flex-shrink: 0;
+    margin-right: 10px;
+
+}
+
+.mobile-category__item:nth-of-type(3n+1) .mobile-category__link{
+    background-color: #87afd8;
+}
+.mobile-category__item:nth-of-type(3n+2) .mobile-category__link{
+    background-color: #76c9bd;
+}
+.mobile-category__item:nth-of-type(3n+3) .mobile-category__link{
+    background-color: #88cf81;
+}
+
+.mobile-category__link{
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 1.4rem;
+    line-height: 2rem;
+    height: 2rem;
+    overflow: hidden;
+    text-align: center;
+    padding: 8px 0 28px 0;
+    display: block;
+    min-width: 108px;
+    border-radius: 4px;
+    font-weight: 300;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
 
 /* PRODUCT CARD */
 .products{
@@ -1153,6 +1266,8 @@ i.product-item__like-icon-fill{
 }
 .footer__download-apps{
     margin-left: 16px;
+    display: flex;
+    flex-direction: column;
 }
 .footer__download-app-img{
     height: 20px;
