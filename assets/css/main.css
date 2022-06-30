@@ -169,6 +169,15 @@
     font-weight: 400;
     font-size: 1.4rem;
 }
+.navbar__user-menu-item label{
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: 1.4rem;
+}
+.navbar__user-menu-item label{
+    display:block;
+}
 .navbar__user-menu-item:first-child{
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
@@ -248,12 +257,7 @@
 .navbar__download-store-img{    /*download-img*/
     height: 16px;           /*size ảnh*/
 }
-.header__logo-link{             /*khi logo đc dùng trong thẻ a, với 1 số browser cũ thì vẫn có thể có gạch dưới logo, hoặc có 1 khung border quanh*/
-    text-decoration: none;
-    color: transparent;     /*xóa khung border xanh*/
-    display: block;
-    line-height: 0;
-}
+
 .navbar__noti{
     position: absolute;
     top: 180%;
@@ -493,6 +497,7 @@
     display: flex;
     align-items: center;
     margin: 0 8px;          /*thang chu download voi logo*/
+    position: relative;
 }
 
 .header__mobile-search{
@@ -505,10 +510,20 @@
 
 .search__logo{                  /*cho cuc logo thanh bang chieu cao voi search, de khi align item thi se align so voi logo */
     width: 210px;
-    height: var(--search-height);
+    height: 50px;
+    
+}
+.header__logo-link{             /*khi logo đc dùng trong thẻ a, với 1 số browser cũ thì vẫn có thể có gạch dưới logo, hoặc có 1 khung border quanh*/
+    text-decoration: none;
+    color: transparent;     /*xóa khung border xanh*/
+    display: block;
+    line-height: 0;
+    position: absolute;
+    bottom: 20px;
 }
 .search__logo-img{
     width: 150px;
+    
     height: 100%;           /* khong co thi placehoder trong input se bi lech */
 }
 .search__block{
@@ -1065,7 +1080,22 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+.search__cart{
+    -webkit-tap-highlight-color: transparent;
+    
+}
+.header__logo-link{
+    -webkit-tap-highlight-color: transparent;
+    
+}
+.search__select{
+    -webkit-tap-highlight-color: transparent;
+    
+}
+.product-item{
+    -webkit-tap-highlight-color: transparent;
 
+}
 /* PRODUCT CARD */
 .products{
     margin-bottom: 36px;

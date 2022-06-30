@@ -69,7 +69,7 @@ html{
     }
 }
 
-/*login modal*/
+/* modal*/
 .modal{
     position: fixed;
     top: 0;
@@ -93,6 +93,42 @@ html{
     z-index: 1;     /*cho body nổi lên trên, không thì sẽ bị overlay đè lên do đang để overlay trc body trong css, default kh set thi zindex overlay đang là 0*/
     animation: grow linear 0.2s;
 }
+
+/* tắt / hiện các modal */
+#input-signup:checked ~ .modal-signup{
+    display: flex;
+}
+#input-login:checked ~ .modal-login{
+    display: flex;
+}
+.modal__overlay:active .modal{
+    display: none;
+}
+
+
+#sw-to-login:checked ~ .modal-login{
+    display: flex;
+}
+#sw-to-login:checked ~ .modal-signup{
+    display: none;
+}
+
+#sw-to-signup:checked ~ .modal-signup{
+    display: flex;
+}
+#sw-to-signup:checked ~ .modal-login{
+    display: none;
+}
+
+/* .btn--auth:hover .modal{
+    display: none;
+}
+.btn--auth:hover .navbar__item-auth{
+    display: none;
+}
+.btn--auth:hover .navbar__item-user{
+    display: block;
+} */
 
 
 /*BUTTON STYLE, VIEETS VO DAY VI BUTTON SE XAI CHUNG*/

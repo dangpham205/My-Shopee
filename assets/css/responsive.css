@@ -64,16 +64,27 @@
 
 /* Mobile */
 @media (max-width: 739px){
+    :root{
+        --header-height:58px;
+    }
     .hide-on-mobile{
         display: none;
     }
     .header__search-wrap{
         padding: 0 12px;
         justify-content: space-between;
+        
     }
     .search__logo {
-        width: unset;
+        width: 120px;
+        height: 100%;
     }
+    .search__logo-img{
+        width: 120px;
+        position: relative;
+        top: 10px;
+    }
+    
     .search__cart{
         width: unset;
     }
@@ -98,6 +109,8 @@
         display: flex;
     }
 
+    
+
     .app__content{
         padding: 0 4px;
     }
@@ -112,6 +125,9 @@
     }
     .footer{
         padding: 0 16px 16px;
+    }
+    .footer__download-qr{
+        display: none;
     }
     .search__suggestion{
         top: calc(var(--header-height) +var(--header-sort-bar-height));
